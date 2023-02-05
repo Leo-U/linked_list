@@ -19,6 +19,7 @@ class LinkedList
   end
 
   def size
+    @list.length
   end
 
   def head
@@ -30,6 +31,7 @@ class LinkedList
   end
 
   def at(index)
+    @list[index]
   end
 
   def pop
@@ -42,6 +44,11 @@ class LinkedList
   end
 
   def to_s
+    string = ''
+    @list.each_with_index do |el, i|
+      i == 0 ? string = "( #{el.value} )" : string += " -> ( #{el.value} )"
+    end
+    string = string + " -> nil"
   end
 
 end
@@ -60,7 +67,9 @@ newList.append(3)
 newList.append('q')
 newList.prepend(33)
 
-newList.list.each do |el|
-  p el
-  p ''
-end
+# newList.list.each do |el|
+#   p el
+#   p ''
+# end
+
+p newList.to_s
